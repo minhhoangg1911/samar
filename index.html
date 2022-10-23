@@ -1017,6 +1017,33 @@
         },
       });
     </script>
+    
+    <script >
+        var listCounter = document.querySelectorAll('.number__item')
+       
+        function count(el) {
+            var numberEl = el.querySelector('.counter')
+            var to = parseInt(numberEl.innerText)
+            var count = 0;
+            var time = 30;
+            var step = to / time;
+
+           let counting = setInterval(()=> {
+            count += step;
+                if(count > to){
+                    clearInterval(counting)
+                numberEl.innerText = to
+                }else {
+                    numberEl.innerText = Math.round(count);
+                }
+               
+            },100);
+        }
+        listCounter.forEach(item=>{
+            count(item)
+        })
+    </script>
+
     <script>
         // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function() {scrollFunction()};
